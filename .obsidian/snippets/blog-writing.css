@@ -1,0 +1,18 @@
+/* 博客写作优化 CSS */
+
+/* frontmatter 块美化 */
+.markdown-source-view .cm-frontmatter {
+  background: rgba(99, 102, 241, 0.05);
+  border-left: 3px solid rgb(99, 102, 241);
+  padding-left: 8px;
+}
+
+/* 代码块样式增强 */
+.markdown-source-view .cm-codeblock {
+  font-size: 0.9em;
+}
+
+/* 标题层级颜色区分 */
+.markdown-source-view .cm-header-1 { color: #e74c3c; }
+.markdown-source-view .cm-header-2 { color: #3498db; }
+.markdown-source-view .cm-header-3 { color: #2ecc71; }

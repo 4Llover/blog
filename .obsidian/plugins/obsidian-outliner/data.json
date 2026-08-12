@@ -1,0 +1,9 @@
+{
+  "stickCursor": true,
+  "selectAll": true,
+  "dragAndDrop": true,
+  "checkboxes": true,
+  "enhanceEnterKey": true,
+  "enhanceTabKey": true,
+  "enhanceDeleteKey": true
+}

@@ -1,0 +1,12 @@
+{
+  "attachmentFolderPath": "public/assets/images/obsidian-attachments",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "src/content/posts",
+  "useMarkdownLinks": true,
+  "showFrontmatter": true,
+  "alwaysUpdateLinks": true,
+  "strictLineBreaks": false,
+  "readableLineLength": true,
+  "defaultViewMode": "source",
+  "livePreview": true
+}

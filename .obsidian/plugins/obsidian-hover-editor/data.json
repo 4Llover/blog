@@ -1,0 +1,11 @@
+{
+  "defaultMode": "preview",
+  "hoverOptions": {
+    "showPopover": true,
+    "showPreview": true,
+    "autoPin": false
+  },
+  "triggerDelay": 300,
+  "initialWidth": 400,
+  "initialHeight": 300
+}

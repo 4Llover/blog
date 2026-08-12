@@ -1,0 +1,17 @@
+{
+  "templates_folder": ".obsidian/templates",
+  "templates_pairs": [],
+  "trigger_on_file_creation": false,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_functions": {},
+  "timeout": 0,
+  "default_date_format": "YYYY-MM-DD",
+  "default_date": "YYYY-MM-DD",
+  "default_time_format": "HH:mm",
+  "syntax_highlighting": true,
+  "enabled_templates": [],
+  "command_timeout": 5,
+  "allow_system_commands": false
+}
