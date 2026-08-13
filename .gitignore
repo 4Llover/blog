@@ -46,7 +46,8 @@ package/
 .obsidian/workspace-mobile.json
 .obsidian/cache
 
-# vibe coding
-.codex*
-.claude
-.mimocode
+# vibe coding - 只忽略缓存，保留 commands/ 和 settings.json
+.claude/scheduled_tasks.json
+.claude/projects
+.claude/todos
+.claude/launch.json
