@@ -129,6 +129,17 @@ pinned: false                # true=置顶
 - 文章管理面板：`src/content/spec/文章管理面板.md`（Dataview 查询）
 - 已安装插件：Dataview、Templater、Linter、Outliner、Admonition、Projects 等 11 个
 
+## 素材中转站
+
+`resources/` 目录是用户向 Claude 传送材料的固定窗口：
+- 用户把图片、壁纸、头像等素材放到 `resources/` 后告诉 Claude
+- Claude 根据用途复制到对应位置：
+  - 头像 → `public/assets/images/` 并更新 `profileConfig.ts`
+  - 壁纸 → `public/assets/images/` 并更新 `backgroundWallpaper.ts`
+  - 文章配图 → `src/content/posts/` 对应目录或 `public/assets/images/`
+  - favicon → `public/favicon/`
+- 该目录已加入 `.gitignore`，个人素材不会提交到仓库
+
 ## 部署架构
 
 - **平台**: Vercel（静态站点托管，git push 自动部署，免费）

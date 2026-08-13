@@ -12,6 +12,16 @@
 - **技术栈**: Astro 7 + Svelte 5 + Tailwind CSS 4 + @astrojs/vercel
 - **内容编辑器**: Obsidian（Vault 路径即项目根目录）
 
+## 素材中转站
+
+用户把图片、壁纸、头像等素材放到 `resources/` 目录后通知你，按用途复制到对应位置：
+- 头像 → `public/assets/images/`，同时更新 `src/config/profileConfig.ts`
+- 壁纸 → `public/assets/images/`，同时更新 `src/config/backgroundWallpaper.ts`
+- 文章配图 → 对应文章目录或 `public/assets/images/`
+- favicon → `public/favicon/`
+
+该目录已在 `.gitignore` 中，不会提交到仓库。
+
 ## 技术架构
 
 ```

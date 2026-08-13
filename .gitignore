@@ -36,6 +36,9 @@ yarn.lock
 # docs
 Firefly-docs/
 
+# 用户素材中转站（个人照片/壁纸等，不提交到仓库）
+resources/
+
 # lite 版本
 Firefly-Lite/
 
