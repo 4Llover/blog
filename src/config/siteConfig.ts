@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "美满伴我",
 
 	// 站点 URL
-	site_url: "https://firefly.cuteleaf.cn",
+	site_url: "https://blackboytreasure.cn",
 
 	// 站点描述
 	description: "小黑的宝藏 — 美满伴我，记录生活中的点滴美好。",
