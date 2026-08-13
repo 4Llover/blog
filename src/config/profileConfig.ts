@@ -20,5 +20,9 @@ export const profileConfig: ProfileConfig = {
 	// 如果想使用尚未包含相应的图标集，则需要安装它
 	// `pnpm add @iconify-json/<icon-set-name>`
 	// showName: true 时显示图标和名称，false 时只显示图标
-	links: [],
+	links: [
+		{ name: "GitHub", icon: "fa7-brands:github", url: "https://github.com/4Llover", showName: false },
+		{ name: "Email", icon: "fa7-solid:envelope", url: "mailto:blackboytreasure@163.com", showName: false },
+		{ name: "RSS", icon: "fa7-solid:rss", url: "/rss/", showName: false },
+	],
 };

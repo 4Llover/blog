@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "美满伴我",
 
 	// 站点 URL
-	site_url: "https://blackboytreasure.cn",
+	site_url: "https://www.blackboytreasure.cn",
 
 	// 站点描述
 	description: "小黑的宝藏 — 美满伴我，记录生活中的点滴美好。",
@@ -22,7 +22,10 @@ export const siteConfig: SiteConfig = {
 		"小黑的宝藏",
 		"博客",
 		"个人博客",
-		"生活记录",
+		"AI工具",
+		"技术分享",
+		"效率工具",
+		"资源分享",
 	],
 
 	// 主题色
@@ -89,7 +92,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	// 站点开始日期，用于统计运行天数
-	siteStartDate: "2025-01-01",
+	siteStartDate: "2026-08-12",
 
 	// 站点时区（IANA 时区字符串），用于格式化bangumi、rss里的构建日期时间等等..
 	// 示例："Asia/Shanghai", "UTC", 如果为空，则按照构建服务器的时区进行时区转换
@@ -114,7 +117,9 @@ export const siteConfig: SiteConfig = {
 		// 动态页面开关
 		dynamic: true,
 		// 书签导航页面开关
-		booknav: false,
+		booknav: true,
+		// 旅行地图页面开关
+		map: true,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航

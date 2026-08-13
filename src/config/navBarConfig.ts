@@ -58,6 +58,12 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
+	// 书签导航
+	links.push(LinkPresets.Booknav);
+
+	// 旅行地图（独立顶级菜单）
+	links.push(LinkPresets.Map);
+
 	return { links } as NavBarConfig;
 };
 
@@ -149,6 +155,12 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/booknav/",
 		icon: "material-symbols:bookmarks",
 		pageKey: "booknav",
+	},
+	Map: {
+		name: "旅行地图",
+		url: "/map/",
+		icon: "material-symbols:map",
+		pageKey: "map",
 	},
 };
 

@@ -1,156 +1,106 @@
 import type { BooknavGroup, BooknavPageConfig } from "../types/booknavConfig";
 
-// 书签导航页面配置
 export const booknavPageConfig: BooknavPageConfig = {
-	// 页面标题，如果留空则使用 i18n 中的翻译
 	title: "",
-
-	// 页面描述文本，如果留空则使用 i18n 中的翻译
 	description: "",
-
-	// favicon 自动获取配置
 	favicon: {
-		// 书签未填写 icon 时，是否自动获取目标站点的 favicon 图标
 		enabled: true,
-
-		// favicon 接口地址，{domain} 为占位符，会被替换成目标站点域名
-		// 更换接口只需保证地址里含有 {domain}，例如：
-		//   https://a.favicon.im/{domain}
-		//   https://favicon.im/{domain}
 		api: "https://a.favicon.im/{domain}",
 	},
 };
 
-// 书签导航配置
-// 每个数组项是一个分类组，分类组内的 items 是该分类下的书签
 export const booknavConfig: BooknavGroup[] = [
 	{
-		id: "dev",
-		name: "开发",
-		icon: "material-symbols:code-rounded",
-		desc: "写代码时离不开的站点",
+		id: "ai",
+		name: "AI 科技",
+		icon: "material-symbols:smart-toy",
+		desc: "AI 工具与平台",
 		weight: 100,
 		items: [
-			{
-				title: "GitHub",
-				url: "https://github.com",
-				desc: "全球最大的代码托管平台",
-				// icon 字段可以使用 astro-icon 图标库的图标名称
-				// 也可以使用图片 URL 和本地图片路径
-				// 不填则会通过接口自动获取目标站点的 favicon 图标（需要在上面配置）
-				icon: "fa7-brands:github",
-				weight: 10,
-			},
-			{
-				title: "MDN Web Docs",
-				url: "https://developer.mozilla.org",
-				desc: "最权威的 Web 技术文档",
-				weight: 9,
-			},
-			{
-				title: "Astro",
-				url: "https://astro.build",
-				desc: "内容驱动型网站的 Web 框架",
-				weight: 8,
-			},
-			{
-				title: "Svelte",
-				url: "https://svelte.dev",
-				desc: "把组件编译成高效原生 JS 的框架",
-				weight: 7,
-			},
-			{
-				title: "Tailwind CSS",
-				url: "https://tailwindcss.com",
-				desc: "一个功能强大且灵活的 CSS 框架",
-				weight: 6,
-			},
-		],
-	},
-	{
-		id: "opensource",
-		name: "项目",
-		icon: "material-symbols:code-rounded",
-		desc: "好用的开源项目",
-		weight: 90,
-		items: [
-			{
-				title: "Firefly",
-				url: "https://github.com/CuteLeaf/Firefly",
-				desc: "清晰美观的 Astro 个人博客主题模板",
-				icon: "/favicon/firefly-32.png",
-				weight: 10,
-			},
+			{ title: "DeepSeek", url: "https://chat.deepseek.com/", desc: "深度求索 AI 对话", weight: 10 },
+			{ title: "ChatGPT", url: "https://chat.openai.com/chat", desc: "OpenAI 对话模型", weight: 9 },
+			{ title: "Midjourney", url: "https://www.midjourney.com/home/", desc: "AI 绘画生成", weight: 9 },
+			{ title: "LM Studio", url: "https://lmstudio.ai/", desc: "本地运行大语言模型", weight: 8 },
+			{ title: "HF-Mirror", url: "https://hf-mirror.com/", desc: "HuggingFace 国内镜像", weight: 8 },
+			{ title: "魔搭社区", url: "https://www.modelscope.cn/home", desc: "阿里 AI 模型社区", weight: 7 },
+			{ title: "Perplexity", url: "https://www.perplexity.ai/", desc: "AI 搜索引擎", weight: 7 },
+			{ title: "天工AI", url: "https://www.tiangong.cn/", desc: "全能 AI 助手", weight: 6 },
+			{ title: "SiliconCloud", url: "https://cloud.siliconflow.cn/models", desc: "硅基流动 AI 云平台", weight: 6 },
+			{ title: "Manus", url: "https://manus.im/app", desc: "AI Agent 平台", weight: 5 },
+			{ title: "豆包", url: "https://www.doubao.com/chat/", desc: "字节跳动 AI 对话", weight: 5 },
 		],
 	},
 	{
 		id: "design",
-		name: "设计",
+		name: "设计素材",
 		icon: "material-symbols:palette-outline-rounded",
-		desc: "配色、图标与灵感来源",
+		desc: "配色、图标与设计灵感",
 		weight: 90,
 		items: [
-			{
-				title: "Iconify",
-				url: "https://icon-sets.iconify.design",
-				desc: "海量开源图标集合搜索",
-				weight: 10,
-			},
-			{
-				title: "iconfont",
-				url: "https://www.iconfont.cn",
-				desc: "阿里巴巴矢量图标库",
-				weight: 9,
-			},
+			{ title: "iconfont", url: "https://www.iconfont.cn/", desc: "阿里巴巴矢量图标库", weight: 10 },
+			{ title: "Unsplash", url: "https://unsplash.com/", desc: "免费高清图片素材", weight: 10 },
+			{ title: "Pexels", url: "https://www.pexels.com/zh-cn/", desc: "免费素材图片", weight: 9 },
+			{ title: "花瓣网", url: "https://huaban.com/follow", desc: "创意灵感收集", weight: 8 },
+			{ title: "中国色", url: "http://zhongguose.com/", desc: "中国传统颜色", weight: 8 },
+			{ title: "炫酷配色", url: "https://www.coocolors.com/", desc: "设计师配色神器", weight: 7 },
+			{ title: "ProcessOn", url: "https://www.processon.com/", desc: "思维导图与流程图", weight: 7 },
+			{ title: "remove.bg", url: "https://www.remove.bg/", desc: "AI 在线抠图", weight: 6 },
+			{ title: "求字体网", url: "https://www.qiuziti.com/", desc: "字体识别与下载", weight: 6 },
 		],
 	},
 	{
-		id: "tools",
-		name: "工具",
-		icon: "material-symbols:build-outline-rounded",
-		desc: "顺手的在线小工具",
+		id: "academic",
+		name: "学术研究",
+		icon: "material-symbols:science",
+		desc: "文献检索与学术工具",
+		weight: 85,
+		items: [
+			{ title: "中国知网", url: "https://c61.overpie.cnki.net/", desc: "中文学术文献数据库", weight: 10 },
+			{ title: "Semantic Scholar", url: "https://www.semanticscholar.org/", desc: "AI 学术搜索引擎", weight: 9 },
+			{ title: "ResearchGate", url: "https://www.researchgate.net/", desc: "学术社交网络", weight: 9 },
+			{ title: "Scopus", url: "https://www.scopus.com/", desc: "文献检索数据库", weight: 8 },
+			{ title: "Web of Science", url: "https://webofscience.clarivate.cn/", desc: "文献检索平台", weight: 8 },
+			{ title: "ScienceDirect", url: "https://www.sciencedirect.com/", desc: "Elsevier 全文数据库", weight: 7 },
+			{ title: "OpenAlex", url: "https://openalex.org/", desc: "开放学术目录", weight: 7 },
+			{ title: "GeoGPT", url: "https://geogpt.zero2x.org.cn/", desc: "地质学 AI 助手", weight: 7 },
+			{ title: "PDFMathTranslate", url: "http://one.pdfmathtranslate.cn/", desc: "PDF 文献翻译", weight: 6 },
+			{ title: "Zotero", url: "https://www.zotero.org/", desc: "文献管理工具", weight: 6 },
+			{ title: "Connected Papers", url: "https://www.connectedpapers.com/", desc: "论文关系可视化", weight: 5 },
+			{ title: "Research Rabbit", url: "https://researchrabbitapp.com/", desc: "论文推荐发现", weight: 5 },
+		],
+	},
+	{
+		id: "dev-tools",
+		name: "开发工具",
+		icon: "material-symbols:code-rounded",
+		desc: "开发效率与实用工具",
 		weight: 80,
 		items: [
-			{
-				title: "TinyPNG",
-				url: "https://tinypng.com",
-				desc: "在线压缩 PNG / JPEG 图片",
-				weight: 10,
-			},
-			{
-				title: "Squoosh",
-				url: "https://squoosh.app",
-				desc: "Google 出品的图片压缩与格式转换",
-				weight: 9,
-			},
-			{
-				title: "Carbon",
-				url: "https://carbon.now.sh",
-				desc: "把代码片段生成漂亮的图片",
-				weight: 8,
-			},
+			{ title: "GitHub", url: "https://github.com/", desc: "代码托管平台", icon: "fa7-brands:github", weight: 10 },
+			{ title: "Apifox", url: "https://apifox.com/", desc: "API 文档与调试", weight: 9 },
+			{ title: "吾爱破解", url: "https://www.52pojie.cn/", desc: "技术交流论坛", weight: 8 },
+			{ title: "Vercel", url: "https://vercel.com/", desc: "前端部署平台", weight: 8 },
+			{ title: "程序员导航", url: "https://hao.panziye.com/", desc: "码农工具网址大全", weight: 7 },
+			{ title: "CSDN", url: "https://www.csdn.net/", desc: "开发者社区", weight: 7 },
+			{ title: "PKMer", url: "https://pkmer.cn/", desc: "Obsidian 插件社区", weight: 6 },
+			{ title: "黑域基地", url: "https://www.hybase.com/", desc: "良心软件栖息地", weight: 6 },
 		],
 	},
 	{
-		id: "resources",
-		name: "资源",
-		icon: "material-symbols:auto-stories-outline-rounded",
-		desc: "文档、教程与阅读",
+		id: "daily",
+		name: "日常工具",
+		icon: "material-symbols:build-outline-rounded",
+		desc: "日常使用的网站和工具",
 		weight: 70,
 		items: [
-			{
-				title: "Firefly Docs",
-				url: "https://docs-firefly.cuteleaf.cn",
-				desc: "Firefly 主题模板文档",
-				icon: "https://docs-firefly.cuteleaf.cn/logo.png",
-				weight: 10,
-			},
-			{
-				title: "夏夜流萤",
-				url: "https://blog.cuteleaf.cn",
-				desc: "飞萤之火自无梦的长夜亮起",
-				weight: 9,
-			},
+			{ title: "哔哩哔哩", url: "https://www.bilibili.com/", desc: "视频弹幕网站", weight: 10 },
+			{ title: "YouTube", url: "https://www.youtube.com/", desc: "视频分享平台", weight: 9 },
+			{ title: "抖音", url: "https://www.douyin.com/", desc: "短视频平台", weight: 8 },
+			{ title: "PanHunt", url: "https://panhunt.com/", desc: "网盘搜索导航", weight: 7 },
+			{ title: "Z-Library", url: "https://1lib.sk/", desc: "全球最大电子书库", weight: 7 },
+			{ title: "豆瓣", url: "https://www.douban.com/", desc: "书影音评分社区", weight: 6 },
+			{ title: "知乎", url: "https://www.zhihu.com/", desc: "知识问答社区", weight: 6 },
+			{ title: "MSDN我告诉你", url: "https://msdn.itellyou.cn/", desc: "系统镜像下载", weight: 5 },
 		],
 	},
 ];
