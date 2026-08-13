@@ -67,12 +67,15 @@ pnpm new-post 文件名     # 新建文章模板
 所有发布操作通过 Git 推送到 GitHub，Vercel 自动检测并重新部署（2-3 分钟）：
 
 ```bash
+# 配置变更时，先本地验证构建不会报错
+pnpm build
+
 git add -A
 git commit -m "feat/fix/chore: 描述"
 git push origin main
 ```
 
-不需要手动操作 Vercel，推送即上线。
+不需要手动操作 Vercel，推送即上线。推送后在 Vercel Dashboard 确认部署状态为 Ready。
 
 ## 文章 Frontmatter 规范
 
@@ -126,10 +129,39 @@ pinned: false                # true=置顶
 - 文章管理面板：`src/content/spec/文章管理面板.md`（Dataview 查询）
 - 已安装插件：Dataview、Templater、Linter、Outliner、Admonition、Projects 等 11 个
 
-## 部署域名
+## 部署架构
 
-- Vercel 默认域名：`blog-xxxxx.vercel.app`（在 Vercel Dashboard 查看）
-- 自定义域名：在 Vercel Dashboard → Settings → Domains 添加腾讯云域名
+- **平台**: Vercel（静态站点托管，git push 自动部署，免费）
+- **适配器**: `@astrojs/vercel`（astro.config.mjs 中配置）
+- **线上域名**: `https://www.blackboytreasure.cn`
+- **根域名**: `blackboytreasure.cn` → 308 跳转到 `www.blackboytreasure.cn`
+- **site_url**: 必须与线上域名一致（`src/config/siteConfig.ts`），否则所有内部链接、og:url、sitemap 全部出错
+
+## 部署隐患与防护
+
+| 隐患 | 后果 | 防护措施 |
+|---|---|---|
+| `site_url` 与实际域名不一致 | 所有链接、SEO 标签、sitemap 失效 | 修改域名时同步更新 `siteConfig.ts` |
+| push 前未本地 build | Vercel 构建失败，线上回滚到旧版本 | 每次配置变更后先 `pnpm build` 验证 |
+| `@astrojs/vercel` 升级后导入路径变化 | 构建失败 | 升级后立即本地 `pnpm build` 测试 |
+| Vercel 部署失败用户无感知 | 线上仍是旧版本，用户以为已上线 | push 后检查 Vercel Dashboard 部署状态 |
+| 根域名 DNS 未同步 | 部分网络访问 404 或超时 | 确保腾讯云 A 记录和 CNAME 记录都已添加 |
+| `trailingSlash: "always"` | URL 末尾不带 `/` 会 404 | 所有内部链接和配置中保持末尾 `/` |
+| 大量图片未压缩 | 构建缓慢，Vercel 免费额度 bandwidth 耗尽 | 图片放 `public/assets/images/`，控制尺寸 |
+
+## Vercel 部署失败排查
+
+```bash
+# 1. 检查最新部署状态（需 gh auth）
+gh api repos/4Llover/blog/deployments --jq '.[0] | {state, environment, created_at}'
+gh api repos/4Llover/blog/deployments/<id>/statuses --jq '.[0].state'
+
+# 2. 本地复现构建
+pnpm build
+
+# 3. 若本地成功但 Vercel 失败，检查 @astrojs/vercel 版本兼容性
+pnpm list @astrojs/vercel
+```
 
 ## 重要注意事项
 

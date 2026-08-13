@@ -5,6 +5,7 @@
 ## 快速参考
 
 - **仓库**: https://github.com/4Llover/blog
+- **线上**: https://www.blackboytreasure.cn
 - **部署**: Vercel（git push 自动上线）
 - **GitHub**: 4Llover（已认证，密钥环持久化）
 - **编辑器**: Obsidian（Vault = 项目根目录）
@@ -13,14 +14,14 @@
 
 ```bash
 pnpm dev          # 本地开发 localhost:4321
-pnpm build        # 生产编译
+pnpm build        # 生产编译（配置变更后必跑，验证无错再push）
 pnpm new-post 名称 # 新建文章
 ```
 
 ## 发布
 
 ```bash
-git add -A && git commit -m "feat: 描述" && git push
+pnpm build && git add -A && git commit -m "feat: 描述" && git push
 ```
 
 ## 技能

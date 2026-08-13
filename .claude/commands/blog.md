@@ -7,8 +7,9 @@
 - **项目路径**: C:\Users\blackboy\Desktop\ljt_4llover
 - **GitHub 仓库**: https://github.com/4Llover/blog
 - **部署平台**: Vercel（自动部署，推代码即上线）
+- **线上域名**: https://www.blackboytreasure.cn
 - **GitHub 账号**: 4Llover（gh auth 已持久化在系统密钥环，无需重新登录）
-- **技术栈**: Astro 7 + Svelte 5 + Tailwind CSS 4
+- **技术栈**: Astro 7 + Svelte 5 + Tailwind CSS 4 + @astrojs/vercel
 - **内容编辑器**: Obsidian（Vault 路径即项目根目录）
 
 ## 技术架构
@@ -109,10 +110,15 @@ pnpm new-post 文章文件名    # 自动在 src/content/posts/ 创建模板
 
 ### 发布流程（推送到 GitHub → Vercel 自动部署）
 ```bash
+# 配置变更时先本地验证
+pnpm build
+
 git add -A
 git commit -m "feat: 描述你做了什么"
 git push
 ```
+
+推送后检查 Vercel Dashboard 确认部署状态为 Ready。
 
 ### Git 提交规范
 - `feat:` 新功能/新文章
@@ -153,18 +159,19 @@ git push
 | 音乐播放器 | src/config/musicConfig.ts |
 | 评论系统 | src/config/commentConfig.ts |
 
-## Vercel 自定义域名配置
+## 线上域名配置
 
-在 Vercel Dashboard → 项目 → Settings → Domains 添加域名：
-1. 输入你的腾讯云域名
-2. Vercel 会提示你添加 CNAME 或 A 记录
-3. 到腾讯云 DNS 控制台添加对应的 DNS 记录
-4. 等待 DNS 生效（通常几分钟到几小时）
+- **主域名**: `www.blackboytreasure.cn`
+- **根域名**: `blackboytreasure.cn`（跳转到 www）
+- **site_url**: `src/config/siteConfig.ts` 必须与线上域名一致，否则所有链接和 SEO 标签失效
+- Vercel Dashboard: 项目 → Settings → Domains 查看和管理域名
 
 ## 注意事项
 
-- pnpm 是必须的包管理器（项目强制要求，有 preinstall 检查）
+- pnpm 是必须的包管理器（项目有 preinstall 检查）
 - Node.js >= 22
+- **push 前务必 `pnpm build` 验证构建**，否则 Vercel 构建失败线上会回滚到旧版本
+- `site_url` 改动后必须同步更新，不一致会导致全站链接404
 - dist/ 目录是编译产物，不需要提交到 Git
 - 本地预览修改即时生效（热更新）
 - Vercel 部署是自动的，每次 push 触发
