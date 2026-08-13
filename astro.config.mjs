@@ -1,5 +1,5 @@
 import { setMaxListeners } from "node:events";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel";
 import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
